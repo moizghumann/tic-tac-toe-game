@@ -1,22 +1,23 @@
-
-interface Props {
-    onclick: (a: boolean) => boolean;
-    status: boolean;
+interface SquareProps {
+    value: string;
+    onClick: () => void;
 }
 
-const Square = ({ status, onclick }: Props) => {
-
+const Square = ({ value, onClick }: SquareProps) => {
     return (
         <>
-            <div className="flex items-center justify-center bg-yellow-500 border rounded-sm cursor-pointer"
-                onClick={() => onclick(!status)}
+            <div
+                className="flex items-center justify-center bg-yellow-500 border rounded-sm cursor-pointer"
+                onClick={onClick}
             >
-                {status === true ?
-                    <img src="/src/assets/icons8-tick-50.png" /> : status === false ?
-                        <img src="/src/assets/icons8-cross-52.png" /> : null}
+                {value === "x" ? (
+                    <img src="/src/assets/icons8-cross-52.png" alt="Cross" height='40px' width='40px' />
+                ) : value === "o" ? (
+                    <img src="/src/assets/icons8-tick-50.png" alt="Tick" height='40px' width='40px' />
+                ) : null}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Square
+export default Square;
