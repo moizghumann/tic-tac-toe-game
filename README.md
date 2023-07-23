@@ -1,6 +1,7 @@
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Screenshot 2023-07-23 at 5 24 34 AM](https://github.com/moizghumann/tic-tac-toe-game/assets/68769670/57369c2b-7721-420b-b1e2-a28464156d87)
 
 Currently, two official plugins are available:
 
