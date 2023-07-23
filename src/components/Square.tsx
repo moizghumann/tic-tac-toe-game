@@ -13,7 +13,7 @@ const Square = ({ value, onClick }: SquareProps) => {
                 {value === "x" ? (
                     <img src="/src/assets/icons8-cross-52.png" alt="Cross" height='40px' width='40px' />
                 ) : value === "o" ? (
-                    <img src="/src/assets/icons8-tick-50.png" alt="Tick" height='40px' width='40px' />
+                    <img src="/src/assets/icons8-circle-50.png" alt="Tick" height='40px' width='40px' />
                 ) : null}
             </div>
         </>

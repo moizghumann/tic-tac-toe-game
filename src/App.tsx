@@ -27,21 +27,23 @@ const App = () => {
     return null;
   };
 
-  const handleSquareClick = (index: number) => {
+  const handleSquareClick = async (index: number) => {
+    // checks if the square is already filled or the game is already won
     if (squares[index] || winStatus) {
       return;
     }
     const newSquares = [...squares];
     newSquares[index] = turn;
     setSquares(newSquares);
-    setTurn(turn === "x" ? "o" : "x");
     const winner = checkWinner(newSquares);
     if (winner) {
       setWinStatus(winner);
-      alert(`${winner} won the game`);
-    } else if (newSquares.every((square) => square)) {
+
+    } else if (newSquares.every((square) => square !== '')) {
       setWinStatus("Tie");
-      alert("Game was tied");
+
+    } else {
+      setTurn(turn === "x" ? "o" : "x");
     }
   };
 
@@ -55,7 +57,7 @@ const App = () => {
     <>
       <div className="h-screen bg-black flex justify-center items-center">
         <div className="text-white text-center">
-          <h1 className="py-3">{turn}'s turn</h1>
+          <h1 className="py-10 text-2xl font-semibold">{winStatus === null || false ? `${turn}'s turn` : `${turn} wins`}</h1>
           <div className="bg-red-500 h-80 w-80 rounded grid grid-cols-3 gap-1 p-1.5">
             {squares.map((value, index) => (
               <Square
@@ -65,7 +67,7 @@ const App = () => {
               />
             ))}
           </div>
-          <button className="my-3 p-2 px-4 bg-gray-600 rounded-sm" onClick={resetGame}>Reset</button>
+          <button className="my-6 p-2 px-4 bg-gray-600 rounded-sm" onClick={resetGame}>Reset</button>
         </div>
       </div>
     </>
